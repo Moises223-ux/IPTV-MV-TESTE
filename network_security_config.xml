@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
+cat << 'EOF' > app/src/main/java/com/iptv/mv/Channel.kt
+package com.iptv.mv
+import java.io.Serializable
+
+data class Channel(
+    val name: String,
+    val streamUrl: String,
+    val logoUrl: String,
+    val groupTitle: String,
+    val tvgId: String
+) : Serializable
